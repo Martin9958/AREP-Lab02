@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PSP0 Calculator</title>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex h-100 p-3 mx-auto flex column">
+
+    <nav class="nav nav-masthead justify-content-center">
+        <a class="btn btn-light" href="#" onClick="calculatorKitModule.getTheResult()">Convertir</a>
+    </nav>
+
+    <main role="main" class="inner cover" id="result">
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p> <a >Martin Cantor</a>.</p>
+        </div>
+    </footer>
+
+    <div>
+            <textarea rows="2" cols="50">
+            </textarea>
+    </div>
+
+
+    <div>
+              <textarea rows="10" cols="50">
+</textarea>
+    </div>
+
+
+</div>
+
+<script src="src/main/resources/static/js/calculator.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</body>
+</html>

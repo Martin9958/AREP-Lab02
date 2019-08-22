@@ -4,10 +4,10 @@ var calculatorKitModule = (function (){
     };
 
     return{
-        getTheResult : async function(){
+        getTheResult : async function getTheResult(){
                 await Promise.resolve(axios.get('/result'))
                 .then(function(response){
-                    document.getElementById("Mean").innerHTML = JSON.stringify(response.data)
+                    document.getElementById("result").innerHTML = JSON.stringify(response.data)
                 })
                 .catch(function(){
                     errorMessage();
