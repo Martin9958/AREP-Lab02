@@ -1,5 +1,6 @@
 package edu.escuelaing.arem;
-import edu.escuelaing.arem.model.calculatorKitModel.calculatorKit;
+
+import edu.escuelaing.arem.service.calculatorService;
 
 import static spark.Spark.*;
 
@@ -8,12 +9,12 @@ import static spark.Spark.*;
  *
  * @author  Andres Martin Cantor Urrego (andres.cantor-u@mail.escuelaing.edu.co)
  */
-public class App {
+public class SparkControllerApp {
 
     public static void main( String[] args ) {
-        final calculatorKit calculatorKit = new calculatorKit("./src/main/resources/columna1.txt");
+        final calculatorService calculatorService = new calculatorService();
         port(getPort());
-        get("/mean", (req, res) -> calculatorKit.calculateMean());
+        get("/result", (req, res) -> calculatorService.getTheResult("./src/main/resources/columna1.txt"));
     }
 
     private static int getPort(){

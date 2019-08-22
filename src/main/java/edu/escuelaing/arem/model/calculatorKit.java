@@ -1,4 +1,4 @@
-package edu.escuelaing.arem.model.calculatorKitModel;
+package edu.escuelaing.arem.model;
 
 import edu.escuelaing.arem.model.linkedListModel.MyLinkedList;
 import edu.escuelaing.arem.model.linkedListModel.exception.MyLinkedListException;
@@ -17,6 +17,16 @@ public class calculatorKit {
      * The linked list that content the elements of a file
      */
     private MyLinkedList linkedList;
+
+    /**
+     * The mean of the set of n real numbers
+     */
+    private Double mean;
+
+    /**
+     * The standard deviation of the set of n real numbers
+     */
+    private Double stdDeviation;
 
     /**
      * Calculator kit constructor with params
@@ -50,8 +60,8 @@ public class calculatorKit {
                 e.printStackTrace();
             }
         }
-        Double mean = summatory/this.linkedList.getMyLinkedListSize();
-        return mean;
+        this.mean = summatory/this.linkedList.getMyLinkedListSize();
+        return this.mean;
     }
 
     /**
@@ -67,8 +77,8 @@ public class calculatorKit {
                 e.printStackTrace();
             }
         }
-        Double desviation = Math.sqrt(summatory/(this.linkedList.getMyLinkedListSize()-1));
-        return desviation;
+        this.stdDeviation = Math.sqrt(summatory/(this.linkedList.getMyLinkedListSize()-1));
+        return this.stdDeviation;
     }
 
     /**
@@ -79,4 +89,28 @@ public class calculatorKit {
         return this.linkedList;
     }
 
+    /**
+     * Get the mean of the elements in the linked list
+     * @return the mean
+     */
+    public Double getMean() {
+        return this.mean;
+    }
+
+    /**
+     * Get the standard deviation of the elements in the linked list
+     * @return the standard deviation
+     */
+    public Double getStdDeviation() {
+        return this.stdDeviation;
+    }
+
+    @Override
+    public String toString() {
+        return "calculatorKit{" +
+                "linkedList = " + linkedList +
+                ", mean=" + mean +
+                ", stdDeviation=" + stdDeviation +
+                '}';
+    }
 }
