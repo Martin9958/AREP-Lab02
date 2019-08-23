@@ -1,12 +1,9 @@
 package edu.escuelaing.arem;
 
+import edu.escuelaing.arem.model.linkedListModel.MyLinkedList;
 import edu.escuelaing.arem.service.calculatorService;
 
 import static spark.Spark.*;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.nio.charset.StandardCharsets;
 
 /**
  * This is the main class to execute the PSP0 Program
@@ -16,13 +13,20 @@ import java.nio.charset.StandardCharsets;
 public class SparkControllerApp {
 
     public static void main( String[] args ) {
-        final calculatorService calculatorService = new calculatorService();
+        final MyLinkedList linkedList = new MyLinkedList();
+        linkedList.addANode(160.0);
+        linkedList.addANode(591.0);
+        linkedList.addANode(114.0);
+        linkedList.addANode(229.0);
+        linkedList.addANode(230.0);
+        linkedList.addANode(270.0);
+        linkedList.addANode(128.0);
+        linkedList.addANode(1657.0);
+        linkedList.addANode(624.0);
+        linkedList.addANode(1503.0);
+        final calculatorService service = new calculatorService();
         port(getPort());
-        get("/result", (req, res) -> {
-            calculatorService.getTheResult("./src/main/resources/columna1.txt");
-            String page = FileUtils.readFileToString(new File("src/main/resources/static/index.html"), StandardCharsets.UTF_8);
-            return page;
-        });
+        get("/result", (req, res) -> service.getTheResult(linkedList));
     }
 
     private static int getPort(){

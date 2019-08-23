@@ -1,4 +1,4 @@
-package edu.escuelaing.arem.model;
+package edu.escuelaing.arem.model.calculatorModel;
 
 import edu.escuelaing.arem.model.linkedListModel.MyLinkedList;
 import edu.escuelaing.arem.model.linkedListModel.exception.MyLinkedListException;
@@ -18,18 +18,9 @@ public class calculatorKit {
      */
     private MyLinkedList linkedList;
 
-    /**
-     * The mean of the set of n real numbers
-     */
-    private Double mean;
 
     /**
-     * The standard deviation of the set of n real numbers
-     */
-    private Double stdDeviation;
-
-    /**
-     * Calculator kit constructor with params
+     * Calculator kit constructor with params - path of the file
      */
     public calculatorKit(String path){
         BufferedReader bufferedReader;
@@ -47,6 +38,11 @@ public class calculatorKit {
         }
     }
 
+    public calculatorKit(MyLinkedList linkedList){
+        this.linkedList= linkedList;
+    }
+
+
     /**
      * Calculate the mean given a set of n real numbers
      * @return the mean
@@ -60,8 +56,8 @@ public class calculatorKit {
                 e.printStackTrace();
             }
         }
-        this.mean = summatory/this.linkedList.getMyLinkedListSize();
-        return this.mean;
+        Double mean = summatory/this.linkedList.getMyLinkedListSize();
+        return mean;
     }
 
     /**
@@ -77,40 +73,9 @@ public class calculatorKit {
                 e.printStackTrace();
             }
         }
-        this.stdDeviation = Math.sqrt(summatory/(this.linkedList.getMyLinkedListSize()-1));
-        return this.stdDeviation;
+        Double stdDeviation = Math.sqrt(summatory/(this.linkedList.getMyLinkedListSize()-1));
+        return stdDeviation;
     }
 
-    /**
-     * Get the linked list that content the elements of a file
-     * @return the linked list
-     */
-    public MyLinkedList getLinkedList(){
-        return this.linkedList;
-    }
 
-    /**
-     * Get the mean of the elements in the linked list
-     * @return the mean
-     */
-    public Double getMean() {
-        return this.mean;
-    }
-
-    /**
-     * Get the standard deviation of the elements in the linked list
-     * @return the standard deviation
-     */
-    public Double getStdDeviation() {
-        return this.stdDeviation;
-    }
-
-    @Override
-    public String toString() {
-        return "calculatorKit{" +
-                "linkedList = " + linkedList +
-                ", mean=" + mean +
-                ", stdDeviation=" + stdDeviation +
-                '}';
-    }
 }

@@ -1,5 +1,5 @@
 package edu.escuelaing.arem.model.calculatorKitModel;
-import edu.escuelaing.arem.model.calculatorKit;
+import edu.escuelaing.arem.model.calculatorModel.calculatorKit;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
