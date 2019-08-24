@@ -7,12 +7,14 @@
 <body class="text-center">
 <div class="cover-container d-flex h-100 p-3 mx-auto flex column">
 
-    <nav class="nav nav-masthead justify-content-center">
-        <a class="btn btn-light" href="#" onClick="calculatorKitModule.getTheResult()">Convertir</a>
-    </nav>
+    <input type="text" id="dataInput">
+    <br>
 
-    <main role="main" class="inner cover" id="result">
-    </main>
+    <input type="submit" value="Submit" onclick="getTheResult()">
+    <br><br>
+
+    <p id="result">
+    </p>
 
     <footer class="mastfoot mt-auto">
         <div class="inner">
@@ -34,7 +36,19 @@
 
 </div>
 
-<script src="src/main/resources/static/js/calculator.js"></script>
+<script >
+    function getTheResult(){
+        axios.post('http://localhost:4567/result', { list : dataList() })
+            .then(function(res){
+                document.getElementById("result").innerHTML = JSON.stringify(res.data["mean"]);
+                console.log(res.data.Result);
+            })
+    }
+    function dataList(){
+        var dataInput = document.getElementById("dataInput").value;
+        return dataInput.split(" ").map(Number);
+    }
+</script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 

@@ -1,7 +1,13 @@
 package edu.escuelaing.arem;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import edu.escuelaing.arem.model.linkedListModel.MyLinkedList;
 import edu.escuelaing.arem.service.calculatorService;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 import static spark.Spark.*;
 
@@ -13,20 +19,18 @@ import static spark.Spark.*;
 public class SparkControllerApp {
 
     public static void main( String[] args ) {
-        final MyLinkedList linkedList = new MyLinkedList();
-        linkedList.addANode(160.0);
-        linkedList.addANode(591.0);
-        linkedList.addANode(114.0);
-        linkedList.addANode(229.0);
-        linkedList.addANode(230.0);
-        linkedList.addANode(270.0);
-        linkedList.addANode(128.0);
-        linkedList.addANode(1657.0);
-        linkedList.addANode(624.0);
-        linkedList.addANode(1503.0);
         final calculatorService service = new calculatorService();
         port(getPort());
-        get("/result", (req, res) -> service.getTheResult(linkedList));
+        post("/result", (req, res) -> {
+            JsonObject getObject = new JsonParser().parse(req.body()).getAsJsonObject();
+            res.type("application/json");
+            System.out.println("Received"+getObject);
+            return service.getTheResult(getObject.get("list").getAsJsonArray());
+        });
+        get("/result", (req, res) -> {
+            String page = FileUtils.readFileToString(new File("src/main/resources/static/index.html"), StandardCharsets.UTF_8);
+            return page;
+        });
     }
 
     private static int getPort(){
