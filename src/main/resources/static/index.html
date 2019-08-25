@@ -40,8 +40,8 @@
     function getTheResult(){
         axios.post('http://localhost:4567/result', { list : dataList() })
             .then(function(res){
-                document.getElementById("result").innerHTML = JSON.stringify(res.data["mean"]);
-                console.log(res.data.Result);
+                document.getElementById("result").innerHTML = res.data;
+                console.log(res.data)
             })
     }
     function dataList(){
