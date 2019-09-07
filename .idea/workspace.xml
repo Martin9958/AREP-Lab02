@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a2eae5-2491-4474-9384-ddba984073d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/escuelaing/arem/SparkControllerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/escuelaing/arem/SparkControllerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/home.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,7 +139,7 @@
       <workItem from="1566479993051" duration="4967000" />
       <workItem from="1566485828422" duration="1201000" />
       <workItem from="1566685424354" duration="5058000" />
-      <workItem from="1567884356072" duration="11946000" />
+      <workItem from="1567884356072" duration="12073000" />
     </task>
     <servers />
   </component>
