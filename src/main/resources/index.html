@@ -38,7 +38,7 @@
 
 <script >
     function getTheResult(){
-        axios.post('http://localhost:4567/result', { list : dataList() })
+        axios.post(((window.location.hostname === "localhost") ? "http://localhost:4567/result" : "https://https://areplab02.herokuapp.com/result"), { list : dataList() })
             .then(function(res){
                 document.getElementById("result").innerHTML = res.data;
                 console.log(res.data)
