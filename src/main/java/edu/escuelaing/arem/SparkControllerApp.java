@@ -26,8 +26,8 @@ public class SparkControllerApp {
             res.type("application/json");
             return service.getTheResult(list.get("list").getAsJsonArray());
         });
-        get("/result", (req, res) -> {
-            String resultPage = FileUtils.readFileToString(new File("src/main/resources/home.html"), StandardCharsets.UTF_8);
+        get("/", (req, res) -> {
+            String resultPage = FileUtils.readFileToString(new File("src/main/resources/index.html"), StandardCharsets.UTF_8);
             return resultPage;
         });
     }
