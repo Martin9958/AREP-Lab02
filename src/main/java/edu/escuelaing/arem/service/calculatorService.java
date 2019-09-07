@@ -7,7 +7,7 @@ import edu.escuelaing.arem.model.linkedListModel.MyLinkedList;
 
 public class calculatorService {
 
-    public static ResultObject getTheResult(JsonArray list){
+    public ResultObject getTheResult(JsonArray list){
         MyLinkedList linkedList = new MyLinkedList();
         for(int i=0; i<list.size();i++){
             linkedList.addANode(list.get(i).getAsDouble());

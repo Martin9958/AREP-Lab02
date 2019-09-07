@@ -20,9 +20,7 @@ public class ResultObject {
 
     @Override
     public String toString() {
-        return "Result = {" +
-                "mean=" + mean +
-                ", std_Deviation=" + std_Deviation +
-                '}';
+        return "The mean is : " + mean +
+                " and The standard deviation is :" + std_Deviation;
     }
 }

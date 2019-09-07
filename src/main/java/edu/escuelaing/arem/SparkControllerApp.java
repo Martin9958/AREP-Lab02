@@ -22,14 +22,13 @@ public class SparkControllerApp {
         final calculatorService service = new calculatorService();
         port(getPort());
         post("/result", (req, res) -> {
-            JsonObject getObject = new JsonParser().parse(req.body()).getAsJsonObject();
+            JsonObject list = new JsonParser().parse(req.body()).getAsJsonObject();
             res.type("application/json");
-            System.out.println("Received"+getObject);
-            return service.getTheResult(getObject.get("list").getAsJsonArray());
+            return service.getTheResult(list.get("list").getAsJsonArray());
         });
         get("/result", (req, res) -> {
-            String page = FileUtils.readFileToString(new File("src/main/resources/static/index.html"), StandardCharsets.UTF_8);
-            return page;
+            String resultPage = FileUtils.readFileToString(new File("src/main/resources/home.html"), StandardCharsets.UTF_8);
+            return resultPage;
         });
     }
 
